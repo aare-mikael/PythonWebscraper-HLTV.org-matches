@@ -2,7 +2,7 @@ from selenium import webdriver
 from bs4 import BeautifulSoup
 import pandas as pd
 
-driver = webdriver.Chrome("/usr/lib/chromium-browser/chromedriver")
+driver = webdriver.Chrome('C:/bin/chromium-browser/chromedriver.exe')
 
 dates=[]
 times=[]
@@ -10,6 +10,7 @@ events=[]
 matchlengths=[]
 hometeams=[]
 awayteams=[]
+
 driver.get("https://www.hltv.org/matches")
 
 content = driver.page_source
