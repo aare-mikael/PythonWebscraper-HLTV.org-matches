@@ -22,20 +22,23 @@ for a in soup.find_all('div', class_='upcomingMatchesSection'):
     date=a.find('div', class_='matchDayHeadline')
     for b in a('div', class_=['upcomingMatch removeBackground oddRowBgColor', 'upcomingMatch removeBackground']):
         time=b.find('div', attrs={'class':'matchTime'})
-        event=b.find('div', attrs={'class':'matchEventName gtSmartphone-only'})
         matchlength=b.find('div', attrs={'class':'matchMeta'})
         if (b.find('div', attrs={'class':'matchInfoEmpty'})):
             hometeamtext = 'TBD'
             awayteamtext = 'TBD'
+            event = b.find('span', attrs={'class':'line-clamp-3'})
+            eventtext = event.text
         else:
             hometeam = b.find('div', attrs={'class':'matchTeam team1'})
             hometeamtext = hometeam.text
             awayteam = b.find('div', attrs={'class':'matchTeam team2'})
             awayteamtext = awayteam.text
+            event=b.find('div', attrs={'class':'matchEventName gtSmartphone-only'})
+            eventtext = event.text
         
         dates.append(date.text)
         times.append(time.text)
-        events.append(event)
+        events.append(eventtext)
         matchlengths.append(matchlength.text)
         hometeams.append(hometeamtext)
         awayteams.append(awayteamtext)
