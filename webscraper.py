@@ -61,3 +61,6 @@ df.to_csv('Uthenta/Matches.csv', encoding='utf-8')
 # Writing Excel-files for easier readability
 print("Writing Excel file")
 df.to_excel('Uthenta/Matches.xlsx', encoding='utf-8')
+
+print("Closing Chrome window")
+driver.quit()
